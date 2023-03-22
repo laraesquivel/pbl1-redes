@@ -51,4 +51,5 @@ O servidor centraliza todas as requisições e trata de acordo com o que for sol
   - periodo: Número do periodo, por exemplo 0 para ser o periodo atual.
   - kind: tipo de periodo, deve ser uma string: D-day, M-mês, Y-ano
   
-- /getFatura
+- /getFatura -> Retorna a fatura
+  -id : identificador do usuário
