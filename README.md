@@ -12,7 +12,7 @@ python __init__.py
 
 ```
 
-Caso esteja no Larsid talvez será necessário configurar previamente o computador, execute as seguintes instruções:
+Caso esteja no Larsid talvez será necessário configurar previamente o computador, se não estiver usando o docker, execute as seguintes instruções previamente:
 
 ```
 sudo apt install python3-pip
@@ -23,6 +23,23 @@ python3 -m venv venv
 
 source venv/bin/activate
 ```
+
+Para qualquer computador, que tenha o Docker execute as seguintes instruções para executar:
+
+```
+docker pull image_name
+
+docker run -it image_name
+
+```
+
+As imagens correspondente são:
+
+- laraesquivel/pbl1-server
+- laraesquivel/pbl1-cliente
+- laraesquivel/pbl1-medidor
+
+Lembre-se de inserir corretamente os endereços de ip no cliente e medidor correspondente ao servidor. O servidor está hospedado no Portainer no Larsid09, insira: 172.16.103.9
 
 ## Interface 
 
