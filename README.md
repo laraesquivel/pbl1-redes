@@ -3,7 +3,7 @@ Sistema que simula um sistema de medidores inteligêntes. Baseado na arquiterua 
 
 ![Diagrama do Sistema Proposto](./diagrama.png)
 
-Todos os softwares do sistema foram desenvolvidos com Python 3.10.9. Lembre-se de executar os seguintes comandos abaixo para cada módulo:
+Todos os softwares do sistema foram desenvolvidos com Python 3.10.9. Lembre-se de executar os seguintes comandos abaixo para cada módulo, caso não tenha Docker:
 
 ```
 pip install -r requirements.txt
