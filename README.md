@@ -82,3 +82,16 @@ O servidor centraliza todas as requisições e trata de acordo com o que for sol
   
 - /getFatura -> Retorna a fatura
   -id : identificador do usuário
+  
+  Considerações Finais:
+  
+  Este código cumpriu a sua função como simulador de um sistema de Iot. Possui dois tipos de clientes: Um TCP(o qual possui dois usuários: cliente da concessionária e funcionário da concessionária) e UDP que é o medidor associado ao cliente. Assim este programa conseguiu concluir com êxito:
+  - Cadastrar cliente
+  - Cadastrar medidor do cliente
+  - Publicar medição personalizada
+  - Publicar medição automática
+  - Verificar fatura
+  - Verficar histórico de medições 
+  - Emitir um alarme de gastos 
+  
+  O código atual ainda precisa ser melhorado em termos de validações de dados porque os dados fornecidos não validados e nem tratados, exemplo: o cpf do cliente pode não ser um cpf real ou o usuário vai inserir um tipo não esperado pelo programa. Os dados também precisam ser salvos, uma vez que o servidor se encerra os dados são perdidos. Falta uma interface gráfica para o uso real do usuário, e um embarcado para o medidor, sistema de segurança para que o sistema deixasse de ser um simulador de um sistema. O que pode ser melhorado em proxímas versões.
