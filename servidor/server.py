@@ -1,10 +1,20 @@
-
+#Feito por Lara Esquivel de Brito Santos
 import threading, socket
 import view, json
 import asyncio
 
 class Server:
+    '''
+    Classe dedicada as comunicações do servidor
+    '''
     def __init__(self,host='localhost',port= 8888, udp_port = 8080):
+        '''
+        Incizalizador
+        Args:
+        host - String: Caminho
+        port - Int: Porta TCP
+        udp_port - Int: Porta UDP
+        '''
         self.__host = host
         self.__port = port
         self.__udp_port = udp_port
@@ -17,8 +27,14 @@ class Server:
         self.server_udp.bind((host,udp_port))
         
         self.server_socket.listen()
+
+        print(socket.gethostbyname(socket.gethostname()))
+
     
     def start(self):
+        '''
+        Incia as threads responsáveis pela manutenção dos servidores
+        '''
         while True:
             thread_tcp = threading.Thread(target=self.start_tcp)
             thread_tcp.start()
@@ -28,6 +44,9 @@ class Server:
             thread_udp.start()
 
     def start_tcp(self):
+         '''
+         Incia o servidor tcp
+         '''
          while self.__run_server:
             conex, addr = self.server_socket.accept()
             print(f'Conectado de {addr}')
@@ -35,6 +54,9 @@ class Server:
             thread.start()
 
     def handle_connnection_udp(self,msg,addr):
+        '''
+        Mantem a conexão udp, sendo este recebendo as mensagens de medições vinda do medidor
+        '''
         print(f'Mensagem de {addr} Recebida {repr(msg.decode())}')
         valor = (msg.decode()).split(',')
         print(valor)
@@ -43,6 +65,9 @@ class Server:
         self.server_udp.sendto(response.encode(),addr)
 
     def handle_connection(self,conex,addr):
+        '''
+        Mantem a conexão do servidor TCP
+        '''
         with conex:
             print(conex)
             request = conex.recv(1024).decode()
@@ -97,9 +122,11 @@ class Server:
             conex.sendall(response.encode())
         print(f"Fim na conexão {addr}!")
 
+#Função desconinuada após uso do udp
     def server_forever(self):
         pass
     
+#Função não utilizada
     def stop(self,signum,frame):
         self.server_socket.close()
         print('Serivdor Encerrado')

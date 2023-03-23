@@ -1,3 +1,4 @@
+#Pertencente a Lara Esquivel de Brito Santos
 #from dotenv import load_dotenv
 import socket, threading
 import os,sys, signal

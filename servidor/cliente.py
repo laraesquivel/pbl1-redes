@@ -1,9 +1,19 @@
 import datetime
 
 class Cliente:
+    '''
+    Classe responsável pelo processamentos de dados dos clientes
+    '''
+
+    #Lista que contem o id de todos os clientes
     clientes_id = []
 
     def __init__(self,id,name):
+        '''
+        Inicializador 
+        id - Identificador do usuário
+        name - Nome do usuário
+        '''
         self.id = 0
         self.name = name
         self.medidores = {}
@@ -15,6 +25,10 @@ class Cliente:
             self.clientes_id.append(id)
 
     class __Medidor:
+        '''
+        Classe interna correspondente ao medidor
+
+        '''
         def __init__(self,id):
             self.id = id
             self.medicoes = []
@@ -31,15 +45,30 @@ class Cliente:
 
 
     def add_new_medidor(self):
+        '''
+        Adiciona um novo medidor, o id sempre é incremental
+        '''
         id = str(len(self.medidores) + 1)
         self.medidores[id] = self.__Medidor(id)
     
     def update_value(self,id,value,timestamp):
+        '''
+        Adiciona medições
+        id - Identificador do medidor
+        value - Valor da medição
+        timestamp - Timestamp de quando o valor foi capturado
+        '''
         print(self.medidores)
         self.medidores[id].medicoes.append((timestamp,value))
 
 
     def get_fatura(self):
+        '''
+        Retorna a fatura do mês
+
+        Returns:
+        Tuple -> Total a ser pago em dinherio, soma em kw
+        '''
         #Valor utilizado foi de 1,07 reais, no qual compoe a media nacional
         #consumo = []
         soma = 0
@@ -58,6 +87,12 @@ class Cliente:
         return (soma*1.07,soma)
         
     def get_consumo(self,kind,periodo):
+        '''
+        Retorna o consumo dado um tipo de periodo e um periodo
+
+        kind - String : D, M , Y
+        Periodo - Int
+        '''
         consumo = []
         soma = 0
         consumo.append(('timestamp','value'))
@@ -88,6 +123,7 @@ class Cliente:
         return (soma,consumo)
     
     def get_alarme(self):
+        '''Retorna o alarme com uma mensagem dizendo se está tudo ok ou não'''
         valor_acumulado,consumo_acumulado = self.get_consumo('M',0)
         if valor_acumulado > 1000:
             return {'alarme':'Excesso!'}

@@ -1,3 +1,5 @@
+#Modulo dedicado a testes não importante para a compreensão do projeto, uso dedicado ao programador
+
 import json,time
 
 json_string = {"id": 2, "id_medidor": 2,"valor":2.3,"timestamp":time.time()}

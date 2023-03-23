@@ -1,3 +1,5 @@
+#Pertencente a Lara Esquivel de Brito Santos
+
 from clienteMedidor import Cliente_Medidor
 import threading
 import datetime
@@ -11,6 +13,12 @@ medidor.recive()
 '''
 
 def transform():
+     '''
+     Metodo que recebe entradas do usuário e as converte para timestamp
+
+     Return:
+     timestamp : Number: Timestamp
+     '''
      d = input("Insira o dia do consumo")
      m = input("Insira o mês do consumo")
      y = input("Insiria o ano do consumo")
@@ -30,6 +38,9 @@ host = input("Insira o host")
 medidor = Cliente_Medidor(medidor_addr,cpf,host=host)
 
 def interface():
+        '''
+        Função responsável pela interação do usuário com o sistema
+        '''
         print(medidor.minutes)
         option = int(input('Insira:\n1:Publicar consumo\n2:Alterar velocidade de envio automático das medições'))
         if option == 1:
@@ -42,6 +53,9 @@ def interface():
             time = float(input("Insira a quantidade de tempo em minutos: 1H -> 60 minutos"))
             medidor.minutes = time
 
+
+##Execução do programa
+#Thread com a interface tem grau de prioridade maior que os agendamentos
 while True:
     #medidor.connect()
     #medidor.start()
