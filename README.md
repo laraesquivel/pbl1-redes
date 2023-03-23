@@ -12,6 +12,18 @@ python __init__.py
 
 ```
 
+Caso esteja no Larsid talvez será necessário configurar previamente o computador, execute as seguintes instruções:
+
+```
+sudo apt install python3-pip
+
+sudo apt install python3.8-venv
+
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
 ## Interface 
 
 Esse é um cliente para o uso de funcionários da concessionária de energia e clientes da concessionária, funciona em cima do protocolo de comunicação HTPP e se comunicará com a porta 8888 do servidor. É uma interface de terminal, o funcionário da concessionária pode fazer:
