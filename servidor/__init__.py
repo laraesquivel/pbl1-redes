@@ -14,7 +14,7 @@ def handler():
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #tipo de endereco / tipo de soquete
 #org = ((os.environ['HOST']), (os.environ['PORT']))
 
-servidor = Server(host="0.0.0.0")
+servidor = Server(host=socket.gethostbyname(socket.gethostname()))
 servidor.start()
 signal.signal(signal.SIGINT,handler)
 
